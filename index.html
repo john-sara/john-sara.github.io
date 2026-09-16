@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>John Sara | Systems & Networking Engineer</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #222; max-width: 800px; margin: 0 auto; padding: 2rem; background: #fafafa; }
+    h1 { margin-bottom: 0.2rem; font-size: 2.2rem; }
+    .subtitle { color: #555; font-size: 1.1rem; margin-bottom: 1.5rem; }
+    .links a { margin-right: 15px; color: #0066cc; text-decoration: none; font-weight: bold; }
+    .links a:hover { text-decoration: underline; }
+    section { margin-top: 2.5rem; }
+    .project { background: #fff; padding: 1.2rem; border-radius: 6px; border: 1px solid #e1e4e8; margin-bottom: 1.2rem; }
+    .project h3 { margin-top: 0; margin-bottom: 0.4rem; }
+    .tech-stack { font-size: 0.85rem; color: #666; font-family: monospace; margin-bottom: 0.6rem; }
+    ul { padding-left: 1.2rem; margin-bottom: 0; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>John Sara</h1>
+    <p class="subtitle">Computer Engineering @ UT Dallas | Systems & Low-Latency Engineer</p>
+    <div class="links">
+      <a href="https://github.com/john-sara" target="_blank">GitHub</a>
+      <a href="mailto:johnrsara@gmail.com">Email</a>
+      <a href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a>
+    </div>
+  </header>
+
+  <section>
+    <h2>Featured Projects</h2>
+
+    <div class="project">
+      <h3>Hardware-Accelerated HFT Matching Engine <a href="https://github.com/john-sara/hft-matching-engine" target="_blank">[Code]</a></h3>
+      <div class="tech-stack">SystemVerilog | C++20 | AXI4-Stream | Verilator | GoogleTest</div>
+      <ul>
+        <li>Architected a 1-cycle latency SystemVerilog matching core delivering deterministic 3.33 ns execution latency at 300MHz (~300M matches/sec theoretical throughput).</li>
+        <li>Engineered a lock-free C++ host driver with zero-copy bit-packing over AXI4-Stream, achieving a sub-nanosecond software payload baseline (1.25 ns/order).</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>Distributed Raft Key-Value Store <a href="https://github.com/john-sara/raft-kv" target="_blank">[Code]</a></h3>
+      <div class="tech-stack">C++20 | CMake | GoogleTest | Distributed Systems | Linux</div>
+      <ul>
+        <li>Engineered a thread-safe distributed key-value store in C++20 implementing Raft consensus (candidate election timeouts, term synchronization, log replication).</li>
+        <li>Built a custom in-memory RPC network transport layer simulating asynchronous multi-node communication, heartbeat propagation, and quorum vote collection.</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>RISC-V Microchip Design Core <a href="https://github.com/john-sara/riscv-rv32i-core" target="_blank">[Code]</a></h3>
+      <div class="tech-stack">Verilog | AMD Vivado | RTL Simulation</div>
+      <ul>
+        <li>Synthesized and implemented a custom logic core in AMD Vivado, optimizing gate-level place-and-route for a 20% reduction in dynamic power consumption.</li>
+      </ul>
+    </div>
+  </section>
+
+</body>
+</html>

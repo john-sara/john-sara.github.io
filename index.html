@@ -15,6 +15,7 @@
     .project h3 { margin-top: 0; margin-bottom: 0.4rem; }
     .tech-stack { font-size: 0.85rem; color: #666; font-family: monospace; margin-bottom: 0.6rem; }
     ul { padding-left: 1.2rem; margin-bottom: 0; }
+    .project img { display: block; max-width: 100%; height: auto; margin-top: 1rem; border-radius: 6px; border: 1px solid #e1e4e8; }
   </style>
 </head>
 <body>
@@ -34,12 +35,14 @@
 
     <div class="project">
       <h3>Distill: ML Inference Optimization <a href="https://github.com/john-sara/distill" target="_blank">[Code]</a></h3>
-      <div class="tech-stack">Python | PyTorch | ONNX Runtime | Streamlit | FastAPI</div>
+      <div class="tech-stack">Python | PyTorch | ONNX Runtime | CUDA | FastAPI | React</div>
       <ul>
-        <li>End-to-end inference optimization toolkit for profiling and quantizing neural networks on consumer hardware.</li>
-        <li>Implements post-training quantization (int8) with automatic accuracy/latency benchmarking to help ML engineers understand real-world deployment tradeoffs.</li>
-        <li>Includes web UI for model upload, optimization pipeline selection, and comparison visualization.</li>
+        <li>Benchmarks quantization on your own hardware: runs the original and optimized model side by side and reports latency, memory or file size, and how closely the outputs still match.</li>
+        <li>Supports dynamic and static int8 on the CPU (PyTorch FX graph mode), float16 on CUDA GPUs, and user-uploaded ONNX models through ONNX Runtime.</li>
+        <li>On an RTX 2060, ResNet50 in float16 ran 1.88x faster than float32 (67.9 ms to 36.1 ms per batch of 32) and used 253 MB of peak GPU memory instead of 466 MB.</li>
+        <li>FastAPI backend serving a single-page React frontend.</li>
       </ul>
+      <img src="assets/distill.png" alt="Distill benchmarking ResNet50 in float32 and float16 on an RTX 2060" loading="lazy" />
     </div>
 
   </section>

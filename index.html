@@ -125,7 +125,7 @@
     <header class="nav">
       <a class="name" href="#top">John Sara</a>
       <nav aria-label="Primary">
-        <a class="hide-sm" href="#distill">Project</a>
+        <a class="hide-sm" href="#distill">Projects</a>
         <a class="hide-sm" href="#experience">Experience</a>
         <a href="https://github.com/john-sara" target="_blank" rel="noopener">GitHub</a>
         <a href="https://linkedin.com/in/john-sara77" target="_blank" rel="noopener">LinkedIn</a>
@@ -181,6 +181,46 @@
             <div class="stat plain">
               <div class="mid">466 to 253 MB</div>
               <p class="cap">peak GPU memory in the same run</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="scout">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Project: Scout</h2>
+          <a class="btn btn-light btn-sm" href="https://github.com/john-sara/scout" target="_blank" rel="noopener">View code on GitHub</a>
+        </div>
+
+        <img class="shot" src="assets/scout.png" alt="Scout answering a question about sharing logic across FastAPI endpoints, with four numbered sources" loading="lazy" />
+
+        <div class="detail">
+          <div>
+            <p>Scout answers questions about the FastAPI docs. An agent searches the docs, reads the pages it needs, and numbers every source it cites. It ships with an evaluation that compares models on answer quality, citations, latency and cost.</p>
+            <ul>
+              <li>Tool-calling agent loop with step and token limits, running on Claude or a local model through Ollama.</li>
+              <li>BM25 retrieval written from scratch. Splitting on headings beat fixed windows, 93% to 87% in the top five.</li>
+              <li>33 labeled questions graded by an LLM judge, including three the docs do not cover, to check that the agent admits gaps.</li>
+            </ul>
+            <div class="chips" aria-label="Technologies">
+              <span class="chip">Python</span>
+              <span class="chip">Claude API</span>
+              <span class="chip">Ollama</span>
+              <span class="chip">FastAPI</span>
+              <span class="chip">BM25</span>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat rust">
+              <div class="big">100%</div>
+              <p class="cap">answer score for Claude Sonnet 5.5 on the 30 answerable questions, with every cited page correct</p>
+            </div>
+            <div class="stat plain">
+              <div class="mid">98% at 1/15 the cost</div>
+              <p class="cap">Claude Haiku 5.5 on the same questions, $0.0017 per answer against $0.0255</p>
             </div>
           </div>
         </div>

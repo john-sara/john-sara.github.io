@@ -4,48 +4,256 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>John Sara</title>
+  <meta name="description" content="Computer Engineering @ UT Dallas | AI/ML Systems Builder" />
+  <meta property="og:title" content="John Sara" />
+  <meta property="og:description" content="Computer Engineering @ UT Dallas | AI/ML Systems Builder" />
+  <meta property="og:image" content="https://john-sara.github.io/assets/distill.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #222; max-width: 800px; margin: 0 auto; padding: 2rem; background: #fafafa; }
-    h1 { margin-bottom: 0.2rem; font-size: 2.2rem; }
-    .subtitle { color: #555; font-size: 1.1rem; margin-bottom: 1.5rem; }
-    .links a { margin-right: 15px; color: #0066cc; text-decoration: none; font-weight: bold; }
-    .links a:hover { text-decoration: underline; }
-    section { margin-top: 2.5rem; }
-    .project { background: #fff; padding: 1.2rem; border-radius: 6px; border: 1px solid #e1e4e8; margin-bottom: 1.2rem; }
-    .project h3 { margin-top: 0; margin-bottom: 0.4rem; }
-    .tech-stack { font-size: 0.85rem; color: #666; font-family: monospace; margin-bottom: 0.6rem; }
-    ul { padding-left: 1.2rem; margin-bottom: 0; }
-    .project img { display: block; max-width: 100%; height: auto; margin-top: 1rem; border-radius: 6px; border: 1px solid #e1e4e8; }
+    :root {
+      --bg: #faf8f5;
+      --card: #ffffff;
+      --ink: #1f1b18;
+      --body: #3d3631;
+      --muted: #6b625a;
+      --hair: #e7e1d9;
+      --walnut: #3b2b22;
+      --rust: #9c3d17;
+      --accent: #c2561b;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { -webkit-font-smoothing: antialiased; }
+    body { font-family: var(--font); background: var(--bg); color: var(--ink); font-size: 16px; line-height: 1.6; }
+    a { color: inherit; }
+    :focus-visible { outline: 2px solid #1b61c9; outline-offset: 3px; border-radius: 4px; }
+    .wrap { max-width: 1120px; margin: 0 auto; padding: 0 32px; }
+
+    /* Nav */
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+    .nav .name { font-weight: 600; letter-spacing: -0.01em; text-decoration: none; }
+    .nav nav { display: flex; align-items: center; gap: 28px; font-size: 14px; }
+    .nav nav a { text-decoration: none; color: var(--body); }
+    .nav nav a:hover { color: var(--ink); }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex; align-items: center; height: 48px; padding: 0 24px; border-radius: 12px;
+      font-size: 15px; font-weight: 500; text-decoration: none; border: 1px solid transparent;
+      transition: background .15s, border-color .15s, transform .1s;
+    }
+    .btn:active { transform: translateY(1px); }
+    .btn-dark { background: var(--ink); color: #fff; }
+    .btn-dark:hover { background: #120f0d; }
+    .btn-light { background: #fff; color: var(--ink); border-color: var(--hair); }
+    .btn-light:hover { border-color: #cfc6ba; }
+    .btn-sm { height: 38px; padding: 0 16px; font-size: 14px; border-radius: 10px; }
+
+    /* Hero */
+    .hero { padding: 88px 0 96px; }
+    .hero h1 { font-size: clamp(56px, 10vw, 120px); font-weight: 500; letter-spacing: -0.05em; line-height: 0.95; }
+    .hero .role { margin-top: 28px; font-size: clamp(18px, 2.2vw, 22px); color: var(--body); }
+    .hero .intro { margin-top: 16px; max-width: 540px; color: var(--muted); font-size: 17px; line-height: 1.6; }
+    .hero .actions { margin-top: 36px; display: flex; flex-wrap: wrap; gap: 12px; }
+
+    /* Sections */
+    section { padding: 24px 0 88px; scroll-margin-top: 16px; }
+    .sec-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin-bottom: 28px; flex-wrap: wrap; }
+    h2 { font-size: 32px; font-weight: 500; letter-spacing: -0.03em; line-height: 1.2; }
+
+    /* Project */
+    .shot { display: block; width: 100%; height: auto; border-radius: 16px; border: 1px solid var(--hair); box-shadow: 0 30px 60px -30px rgba(31,27,24,0.35), 0 6px 18px -8px rgba(31,27,24,0.2); }
+    .detail { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); gap: 56px; margin-top: 48px; align-items: start; }
+    .detail p { font-size: 18px; line-height: 1.6; color: var(--body); max-width: 560px; }
+    .detail ul { margin: 20px 0 0 1.1rem; color: var(--body); max-width: 560px; }
+    .detail li { margin-top: 8px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+    .chip { height: 30px; padding: 0 12px; display: inline-flex; align-items: center; border-radius: 999px; font-size: 13px; font-weight: 500; color: var(--body); background: #fff; border: 1px solid var(--hair); }
+    .stats { display: flex; flex-direction: column; gap: 16px; }
+    .stat { border-radius: 14px; padding: 28px; }
+    .stat.rust { background: var(--rust); color: #fff; }
+    .stat.plain { background: var(--card); border: 1px solid var(--hair); }
+    .stat .big { font-size: 72px; line-height: 1; font-weight: 500; letter-spacing: -0.05em; }
+    .stat .mid { font-size: 36px; line-height: 1.1; font-weight: 500; letter-spacing: -0.03em; }
+    .stat .cap { margin-top: 14px; font-size: 14px; line-height: 1.5; }
+    .stat.rust .cap { color: rgba(255,255,255,0.88); }
+    .stat.plain .cap { color: var(--muted); }
+
+    /* Experience */
+    .rows { border-top: 1px solid var(--hair); }
+    .row { display: flex; justify-content: space-between; gap: 24px; padding: 22px 0; border-bottom: 1px solid var(--hair); }
+    .row .title { font-weight: 500; font-size: 18px; letter-spacing: -0.01em; }
+    .row .org { color: var(--muted); font-size: 15px; margin-top: 2px; }
+    .row .when { color: var(--muted); font-size: 15px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+
+    /* Skills */
+    .skills { display: grid; grid-template-columns: 160px 1fr; row-gap: 14px; column-gap: 24px; border-top: 1px solid var(--hair); padding-top: 22px; }
+    .skills dt { color: var(--muted); font-size: 15px; }
+    .skills dd { font-size: 16px; }
+
+    /* Footer */
+    footer { background: var(--walnut); color: #fff; padding: 72px 0; }
+    footer h2 { font-size: clamp(32px, 5vw, 48px); letter-spacing: -0.04em; max-width: 640px; }
+    footer .actions { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+    footer .btn-light { background: transparent; color: #fff; border-color: rgba(255,255,255,0.45); }
+    footer .btn-light:hover { background: rgba(255,255,255,0.1); border-color: #fff; }
+    footer .btn-dark { background: #fff; color: var(--ink); }
+    footer .btn-dark:hover { background: #f1ece6; }
+    footer :focus-visible { outline-color: #fff; }
+
+    @media (max-width: 860px) {
+      .detail { grid-template-columns: 1fr; gap: 32px; }
+      .nav nav .hide-sm { display: none; }
+    }
+    @media (max-width: 600px) {
+      .wrap { padding: 0 20px; }
+      .hero { padding: 56px 0 64px; }
+      section { padding-bottom: 64px; }
+      .row { flex-direction: column; gap: 4px; }
+      .skills { grid-template-columns: 1fr; row-gap: 4px; }
+      .skills dd { margin-bottom: 14px; }
+      .stat .big { font-size: 60px; }
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>John Sara</h1>
-    <p class="subtitle">Computer Engineering @ UT Dallas | AI/ML Systems Builder</p>
-    <div class="links">
-      <a href="https://github.com/john-sara" target="_blank">GitHub</a>
-      <a href="mailto:johnrsara@gmail.com">Email</a>
-      <a href="https://linkedin.com/in/john-sara77" target="_blank">LinkedIn</a>
+  <div class="wrap">
+    <header class="nav">
+      <a class="name" href="#top">John Sara</a>
+      <nav aria-label="Primary">
+        <a class="hide-sm" href="#distill">Distill</a>
+        <a class="hide-sm" href="#experience">Experience</a>
+        <a href="https://github.com/john-sara" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/john-sara77" target="_blank" rel="noopener">LinkedIn</a>
+      </nav>
+    </header>
+  </div>
+
+  <main id="top">
+    <div class="wrap">
+      <div class="hero">
+        <h1>John Sara</h1>
+        <p class="role">Computer Engineering @ UT Dallas | AI/ML Systems Builder</p>
+        <p class="intro">I build tools that show how neural networks actually run on real hardware: how fast, how much memory, and what accuracy you give up to get there.</p>
+        <div class="actions">
+          <a class="btn btn-dark" href="#distill">See Distill</a>
+          <a class="btn btn-light" href="mailto:johnrsara@gmail.com">Email me</a>
+        </div>
+      </div>
     </div>
-  </header>
 
-  <section>
-    <h2>Projects</h2>
+    <section id="distill">
+      <div class="wrap">
+        <div class="sec-head">
+          <h2>Distill</h2>
+          <a class="btn btn-light btn-sm" href="https://github.com/john-sara/distill" target="_blank" rel="noopener">View code on GitHub</a>
+        </div>
 
-    <div class="project">
-      <h3>Distill: ML Inference Optimization <a href="https://github.com/john-sara/distill" target="_blank">[Code]</a></h3>
-      <div class="tech-stack">Python | PyTorch | ONNX Runtime | CUDA | FastAPI | React</div>
-      <ul>
-        <li>Benchmarks quantization on your own hardware: runs the original and optimized model side by side and reports latency, memory or file size, and how closely the outputs still match.</li>
-        <li>Supports dynamic and static int8 on the CPU (PyTorch FX graph mode), float16 on CUDA GPUs, and user-uploaded ONNX models through ONNX Runtime.</li>
-        <li>On an RTX 2060, ResNet50 in float16 ran 1.88x faster than float32 (67.9 ms to 36.1 ms per batch of 32) and used 253 MB of peak GPU memory instead of 466 MB.</li>
-        <li>FastAPI backend serving a single-page React frontend.</li>
-      </ul>
-      <img src="assets/distill.png" alt="Distill benchmarking ResNet50 in float32 and float16 on an RTX 2060" loading="lazy" />
+        <img class="shot" src="assets/distill.png" alt="Distill benchmarking ResNet50 in float32 and float16 on an RTX 2060" loading="lazy" />
+
+        <div class="detail">
+          <div>
+            <p>Distill runs a model and its quantized version side by side on your own hardware, then reports latency, memory or file size, and how closely the outputs still match the original.</p>
+            <ul>
+              <li>Dynamic and static int8 on the CPU with PyTorch FX graph mode, and float16 on CUDA GPUs.</li>
+              <li>Upload your own ONNX model and benchmark it with ONNX Runtime.</li>
+              <li>FastAPI backend serving a single-page React frontend.</li>
+            </ul>
+            <div class="chips" aria-label="Technologies">
+              <span class="chip">Python</span>
+              <span class="chip">PyTorch</span>
+              <span class="chip">ONNX Runtime</span>
+              <span class="chip">CUDA</span>
+              <span class="chip">FastAPI</span>
+              <span class="chip">React</span>
+            </div>
+          </div>
+
+          <div class="stats">
+            <div class="stat rust">
+              <div class="big">1.88x</div>
+              <p class="cap">faster inference for ResNet50 in float16 than float32 on an RTX 2060 (67.9 ms to 36.1 ms per batch of 32)</p>
+            </div>
+            <div class="stat plain">
+              <div class="mid">466 to 253 MB</div>
+              <p class="cap">peak GPU memory in the same run</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="wrap">
+        <div class="sec-head"><h2>Experience</h2></div>
+        <div class="rows">
+          <div class="row">
+            <div>
+              <div class="title">IT &amp; Automation Engineering Intern</div>
+              <div class="org">LANWAN IT Solutions</div>
+            </div>
+            <div class="when">Jul 2025 to Aug 2026</div>
+          </div>
+          <div class="row">
+            <div>
+              <div class="title">Data Operations Engineering Intern</div>
+              <div class="org">EOS Labs</div>
+            </div>
+            <div class="when">Feb 2024 to Jun 2024</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="wrap">
+        <div class="sec-head"><h2>Skills</h2></div>
+        <dl class="skills">
+          <dt>Languages</dt><dd>Python, C++</dd>
+          <dt>ML and AI</dt><dd>PyTorch, ONNX Runtime, CUDA</dd>
+          <dt>Web</dt><dd>FastAPI, React</dd>
+          <dt>Tools</dt><dd>Git, VS Code, AMD Vivado</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <h2>Looking for an internship in AI/ML systems? Let's talk.</h2>
+      <div class="actions">
+        <a class="btn btn-dark" href="mailto:johnrsara@gmail.com">johnrsara@gmail.com</a>
+        <a class="btn btn-light" href="https://linkedin.com/in/john-sara77" target="_blank" rel="noopener">LinkedIn</a>
+        <a class="btn btn-light" href="https://github.com/john-sara" target="_blank" rel="noopener">GitHub</a>
+      </div>
     </div>
+  </footer>
 
-  </section>
-
+  <script>
+    // Smooth, eased scrolling for in-page links
+    document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+      a.addEventListener('click', function (e) {
+        var id = a.getAttribute('href').slice(1);
+        var el = id === 'top' ? document.body : document.getElementById(id);
+        if (!el) return;
+        e.preventDefault();
+        var startY = window.scrollY;
+        var endY = id === 'top' ? 0 : Math.max(0, el.getBoundingClientRect().top + startY - 16);
+        var dist = endY - startY, ms = 800, t0;
+        var ease = function (t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; };
+        var step = function (now) {
+          if (t0 === undefined) t0 = now;
+          var p = Math.min((now - t0) / ms, 1);
+          window.scrollTo({ top: startY + dist * ease(p), left: 0, behavior: 'instant' });
+          if (p < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      });
+    });
+  </script>
 </body>
 </html>

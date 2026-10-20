@@ -191,7 +191,7 @@
       <div class="wrap">
         <div class="sec-head">
           <h2>Project: Scout</h2>
-          <a class="btn btn-light btn-sm" href="https://github.com/john-sara/scout" target="_blank" rel="noopener">View code on GitHub</a>
+          <span style="display:flex;gap:8px;flex-wrap:wrap"><a class="btn btn-light btn-sm" href="https://scout-bc8e.onrender.com" target="_blank" rel="noopener">Try it live</a><a class="btn btn-light btn-sm" href="https://github.com/john-sara/scout" target="_blank" rel="noopener">View code on GitHub</a></span>
         </div>
 
         <img class="shot" src="assets/scout.png" alt="Scout answering a question about sharing logic across FastAPI endpoints, with four numbered sources" loading="lazy" />
@@ -201,7 +201,7 @@
             <p>Scout answers questions about the FastAPI docs. An agent searches the docs, reads the pages it needs, and numbers every source it cites. It ships with an evaluation that compares models on answer quality, citations, latency and cost.</p>
             <ul>
               <li>Tool-calling agent loop with step and token limits, running on Claude or a local model through Ollama.</li>
-              <li>BM25 retrieval written from scratch. Splitting on headings beat fixed windows, 93% to 87% in the top five.</li>
+              <li>BM25 retrieval written from scratch, compared against embeddings and a hybrid of the two. Hybrid found the right page in the top five for all 30 answerable questions, against 93% for BM25 alone.</li>
               <li>33 labeled questions graded by an LLM judge, including three the docs do not cover, to check that the agent admits gaps.</li>
             </ul>
             <div class="chips" aria-label="Technologies">
